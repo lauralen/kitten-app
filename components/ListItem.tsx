@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Image, Text } from "react-native";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import { Colors } from "../styles/index";
 import { DataItem } from "../utils/types";
 
 interface Props {
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     margin: 20,
     padding: 10,
     borderWidth: 2,
-    borderColor: Colors.black,
+    borderColor: Colors.primary,
     borderRadius: 10
   },
 
