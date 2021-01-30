@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -26,12 +26,21 @@ export default function List({ setSelected, navigation }: Props) {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [isConnected, setIsConnected] = useState<boolean>(false);
   const [count, setCount] = useState<number>(30);
+  const [data, setData] = useState<DataItem[] | null>(null);
 
   NetInfo.fetch()
     .then(state => {
       setIsConnected(state.isConnected);
     })
     .finally(() => setIsLoading(false));
+
+  useEffect(() => {
+    getData(count);
+  }, [count]);
+
+  function getData(count: number) {
+    setData(generateData(count));
+  }
 
   return (
     <View style={styles.container}>
@@ -53,7 +62,7 @@ export default function List({ setSelected, navigation }: Props) {
             })}
           </View>
           <FlatList<DataItem>
-            data={generateData(count)}
+            data={data}
             renderItem={({ item }) => (
               <ListItem
                 item={item}
