@@ -1,55 +1,35 @@
+import "react-native-gesture-handler";
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { Text, FlatList } from "react-native";
+import { Colors } from "./styles/index";
 
-import Header from "./components/Header";
-import ListItem from "./components/ListItem";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+const Stack = createStackNavigator();
 
-interface DataItem {
-  id: string;
-  title: string;
-  img: string;
-}
-
-const data = [
-  {
-    id: "1",
-    title: "Kitten",
-    img: "http://placekitten.com/400/400?image=1"
-  },
-  {
-    id: "2",
-    title: "Cat",
-    img: "http://placekitten.com/400/400?image=2"
-  },
-  {
-    id: "3",
-    title: "Kit Kat",
-    img: "http://placekitten.com/400/400?image=3"
-  }
-];
+import List from "./views/List";
+import Info from "./views/Info";
 
 export default function App() {
   const [selected, setSelected] = useState<string | null>(null);
 
   return (
-    <>
+    <NavigationContainer>
       <StatusBar hidden={true} />
-      <Header>
-        <Text>Kitten List</Text>
-      </Header>
-      <FlatList<DataItem>
-        data={data}
-        renderItem={({ item }) => (
-          <ListItem
-            id={item.id}
-            img={item.img}
-            title={item.title}
-            select={(id: string) => setSelected(id)}
-          />
-        )}
-        keyExtractor={item => item.id}
-      />
-    </>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: Colors.primary
+          }
+        }}
+      >
+        <Stack.Screen name="List" options={{ title: "Kitten List" }}>
+          {props => <List {...props} setSelected={setSelected} />}
+        </Stack.Screen>
+        <Stack.Screen name="Info" options={{ title: "Kitten View" }}>
+          {props => <Info {...props} selected={selected} />}
+        </Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
