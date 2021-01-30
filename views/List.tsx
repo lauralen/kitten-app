@@ -8,21 +8,27 @@ interface Props {
   navigation: any;
 }
 
-const data = [
+const data: DataItem[] = [
   {
     id: "1",
     title: "Kitten",
-    img: "http://placekitten.com/400/400?image=1"
+    img: "http://placekitten.com/400/400?image=1",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam maximus pellentesque ipsum vitae semper. Vestibulum vitae eros ullamcorper, mollis urna eu, scelerisque ipsum. Suspendisse eu nisi sollicitudin quam fringilla tempor. Suspendisse ultrices mauris at mauris dignissim elementum. Ut eget rutrum dolor. Vivamus efficitur, nunc ut gravida tempor, nulla lectus sagittis odio, vel ultricies tellus lacus sed nulla. Curabitur ac elit vel leo tincidunt tristique vel eu neque."
   },
   {
     id: "2",
     title: "Cat",
-    img: "http://placekitten.com/400/400?image=2"
+    img: "http://placekitten.com/400/400?image=2",
+    description:
+      "Vivamus efficitur, nunc ut gravida tempor, nulla lectus sagittis odio, vel ultricies tellus lacus sed nulla. Curabitur ac elit vel leo tincidunt tristique vel eu neque."
   },
   {
     id: "3",
     title: "Kit Kat",
-    img: "http://placekitten.com/400/400?image=3"
+    img: "http://placekitten.com/400/400?image=3",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam maximus pellentesque ipsum vitae semper. Vestibulum vitae eros ullamcorper, mollis urna eu, scelerisque ipsum. Suspendisse eu nisi sollicitudin quam fringilla tempor. Suspendisse ultrices mauris at mauris dignissim elementum. Ut eget rutrum dolor. Vivamus efficitur, nunc ut gravida tempor, nulla lectus sagittis odio, vel ultricies tellus lacus sed nulla."
   }
 ];
 
