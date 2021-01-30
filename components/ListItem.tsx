@@ -1,15 +1,17 @@
 import React from "react";
-import { StyleSheet, View, Image, Text } from "react-native";
+import { StyleSheet, TouchableOpacity, Image, Text } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 
 interface Props {
+  id: string;
   img: string;
   title: string;
+  select: any;
 }
 
-export default function ListItem({ img, title }: Props) {
+export default function ListItem({ id, img, title, select }: Props) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={() => select(id)}>
       <Image
         style={styles.img}
         source={{
@@ -17,7 +19,7 @@ export default function ListItem({ img, title }: Props) {
         }}
       />
       <Text style={styles.title}>{title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Text, FlatList } from "react-native";
 
@@ -30,6 +30,8 @@ const data = [
 ];
 
 export default function App() {
+  const [selected, setSelected] = useState<string | null>(null);
+
   return (
     <>
       <StatusBar hidden={true} />
@@ -39,7 +41,12 @@ export default function App() {
       <FlatList<DataItem>
         data={data}
         renderItem={({ item }) => (
-          <ListItem img={item.img} title={item.title} />
+          <ListItem
+            id={item.id}
+            img={item.img}
+            title={item.title}
+            select={(id: string) => setSelected(id)}
+          />
         )}
         keyExtractor={item => item.id}
       />
