@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { ScrollView, View, Text, Image, StyleSheet } from "react-native";
 import { DataItem } from "../utils/types";
 
 interface Props {
@@ -13,7 +13,7 @@ export default function Info({ selected }: Props) {
   const { img, title, description } = selected;
 
   return (
-    <>
+    <ScrollView>
       <Image
         style={styles.img}
         source={{
@@ -24,7 +24,7 @@ export default function Info({ selected }: Props) {
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.description}>{description}</Text>
       </View>
-    </>
+    </ScrollView>
   );
 }
 
