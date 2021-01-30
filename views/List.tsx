@@ -1,16 +1,11 @@
 import React from "react";
 import { View, FlatList } from "react-native";
 import ListItem from "../components/ListItem";
+import { DataItem } from "../utils/types";
 
 interface Props {
   setSelected: any;
   navigation: any;
-}
-
-interface DataItem {
-  id: string;
-  title: string;
-  img: string;
 }
 
 const data = [
@@ -38,11 +33,9 @@ export default function List({ setSelected, navigation }: Props) {
         data={data}
         renderItem={({ item }) => (
           <ListItem
-            id={item.id}
-            img={item.img}
-            title={item.title}
-            select={(id: string) => {
-              setSelected(id);
+            item={item}
+            select={(item: DataItem) => {
+              setSelected(item);
               navigation.navigate("Info");
             }}
           />

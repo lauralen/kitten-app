@@ -1,17 +1,18 @@
 import React from "react";
 import { StyleSheet, TouchableOpacity, Image, Text } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import { DataItem } from "../utils/types";
 
 interface Props {
-  id: string;
-  img: string;
-  title: string;
+  item: DataItem;
   select: any;
 }
 
-export default function ListItem({ id, img, title, select }: Props) {
+export default function ListItem({ item, select }: Props) {
+  const { img, title } = item;
+
   return (
-    <TouchableOpacity style={styles.container} onPress={() => select(id)}>
+    <TouchableOpacity style={styles.container} onPress={() => select(item)}>
       <Image
         style={styles.img}
         source={{

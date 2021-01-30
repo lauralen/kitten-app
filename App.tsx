@@ -10,8 +10,10 @@ const Stack = createStackNavigator();
 import List from "./views/List";
 import Info from "./views/Info";
 
+import { DataItem } from "./utils/types";
+
 export default function App() {
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selected, setSelected] = useState<DataItem | null>(null);
 
   return (
     <NavigationContainer>
