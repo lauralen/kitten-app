@@ -1,5 +1,9 @@
 # Kitten App
 
+## About
+
+A simple React Native application that displays a list of kittens and info of selected cat.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -39,3 +43,9 @@ expo start
 ```
 
 Install the Expo client app on your phone and connect to the same wireless network as your computer. Scan the QR code from your terminal to open the project.
+
+Run ESLint
+
+```
+npm run lint
+```
