@@ -8,6 +8,7 @@ import {
   ActivityIndicator
 } from "react-native";
 import NetInfo from "@react-native-community/netinfo";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import ListItem from "../components/ListItem";
 
@@ -35,11 +36,34 @@ export default function List({ setSelected, navigation }: Props) {
     .finally(() => setIsLoading(false));
 
   useEffect(() => {
+    getStoredData();
+  }, []);
+
+  useEffect(() => {
     getData(count);
   }, [count]);
 
+  useEffect(() => {
+    data !== null && storeData(data);
+  }, [data]);
+
   function getData(count: number) {
     setData(generateData(count));
+  }
+
+  async function storeData(data: DataItem[]) {
+    try {
+      const jsonValue = JSON.stringify(data);
+      await AsyncStorage.setItem("kittenData", jsonValue);
+    } catch {}
+  }
+
+  async function getStoredData() {
+    try {
+      const jsonValue = await AsyncStorage.getItem("kittenData");
+      const data = jsonValue != null ? JSON.parse(jsonValue) : null;
+      setData(data);
+    } catch {}
   }
 
   return (
