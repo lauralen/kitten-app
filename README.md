@@ -44,8 +44,16 @@ expo start
 
 Install the Expo client app on your phone and connect to the same wireless network as your computer. Scan the QR code from your terminal to open the project.
 
+### Scripts
+
 Run ESLint
 
 ```
 npm run lint
+```
+
+Run tests
+
+```
+npm run test
 ```
