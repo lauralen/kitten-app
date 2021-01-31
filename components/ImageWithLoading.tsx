@@ -28,6 +28,7 @@ export default function ImageWithLoading({ uri }: Props) {
           uri: uri
         }}
         onLoad={() => setIsLoading(false)}
+        accessibilityRole="image"
       />
     </>
   );
