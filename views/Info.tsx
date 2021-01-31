@@ -1,6 +1,7 @@
 import React from "react";
-import { ScrollView, View, Text, Image, StyleSheet } from "react-native";
+import { ScrollView, View, Text, StyleSheet } from "react-native";
 import { DataItem } from "../utils/types";
+import ImageWithLoading from "../components/ImageWithLoading";
 
 interface Props {
   navigation: any;
@@ -14,12 +15,7 @@ export default function Info({ selected }: Props) {
 
   return (
     <ScrollView>
-      <Image
-        style={styles.img}
-        source={{
-          uri: img
-        }}
-      />
+      <ImageWithLoading uri={img} />
       <View style={styles.textWrapper}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.description}>{description}</Text>

@@ -1,7 +1,9 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, Image, Text } from "react-native";
+import { StyleSheet, TouchableOpacity, Text } from "react-native";
 import { Colors } from "../styles/index";
 import { DataItem } from "../utils/types";
+
+import ImageWithLoading from "./ImageWithLoading";
 
 interface Props {
   item: DataItem;
@@ -13,12 +15,7 @@ export default function ListItem({ item, select }: Props) {
 
   return (
     <TouchableOpacity style={styles.container} onPress={() => select(item)}>
-      <Image
-        style={styles.img}
-        source={{
-          uri: img
-        }}
-      />
+      <ImageWithLoading uri={img} />
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
@@ -26,7 +23,7 @@ export default function ListItem({ item, select }: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    margin: 20,
+    marginBottom: 20,
     padding: 10,
     borderWidth: 2,
     borderColor: Colors.primary,
@@ -41,6 +38,7 @@ const styles = StyleSheet.create({
 
   title: {
     paddingTop: 10,
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: 20
   }
 });
