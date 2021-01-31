@@ -16,7 +16,7 @@ import { generateData } from "../utils/functions";
 import { Colors } from "../styles/index";
 
 interface Props {
-  setSelected: any;
+  setSelected: Function;
   navigation: any;
 }
 

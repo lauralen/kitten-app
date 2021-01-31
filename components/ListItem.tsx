@@ -7,7 +7,7 @@ import ImageWithLoading from "./ImageWithLoading";
 
 interface Props {
   item: DataItem;
-  select: any;
+  select: Function;
 }
 
 export default function ListItem({ item, select }: Props) {
