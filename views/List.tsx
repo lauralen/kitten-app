@@ -54,7 +54,7 @@ export default function List({ setSelected, navigation }: Props) {
               return (
                 <Button
                   key={option}
-                  color={Colors.primary}
+                  color={option === count ? Colors.black : Colors.primary}
                   onPress={() => setCount(option)}
                   title={String(option)}
                 />
